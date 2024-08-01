@@ -1,0 +1,401 @@
+<html><head><base href="https://adp.workforcenow.com/">
+<title>BGCGW Requisition Submission Simulation - ADP Workforce Now</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    .header {
+        background-color: #003087;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .nav-menu {
+        display: flex;
+        gap: 20px;
+    }
+    .content {
+        padding: 20px;
+        background-color: white;
+        margin: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input, select, textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .button {
+        background-color: #003087;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .info-box {
+        background-color: #e6f3ff;
+        border: 1px solid #b8daff;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+    }
+    .tab-menu {
+        display: flex;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+    .tab {
+        padding: 10px 20px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-bottom: none;
+    }
+    .tab.active {
+        background-color: white;
+        border-color: #ccc;
+        border-bottom-color: white;
+        margin-bottom: -1px;
+    }
+    .page {
+        display: none;
+    }
+    .page.active {
+        display: block;
+    }
+    .nav-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .checkbox-group {
+        margin-bottom: 10px;
+    }
+    .checkbox-group label {
+        display: inline;
+        margin-left: 5px;
+    }
+    .simulation-title {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #003087;
+    }
+</style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">ADP Workforce Now</div>
+        <div class="nav-menu">
+            <span>Home</span>
+            <span>Resources</span>
+            <span>Myself</span>
+            <span>My Team</span>
+            <span>People</span>
+            <span>Process</span>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1 class="simulation-title">BGCGW Requisition Submission Simulation</h1>
+        <h2>Recruitment</h2>
+        
+        <div class="tab-menu">
+            <div class="tab active" data-tab="position-info">Position Information</div>
+            <div class="tab" data-tab="posting-details">Posting Details</div>
+            <div class="tab" data-tab="posting-questions">Posting Questions</div>
+            <div class="tab" data-tab="confirm-selections">Confirm Selections</div>
+        </div>
+        
+        <form id="requisitionForm">
+            <div id="position-info" class="page active">
+                <div class="form-group">
+                    <label for="requisition">Requisition #</label>
+                    <input type="text" id="requisition" name="requisition" value="####" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="jobTitle">Job Title</label>
+                    <input type="text" id="jobTitle" name="jobTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="workerCategory">Worker Category</label>
+                    <select id="workerCategory" name="workerCategory" required>
+                        <option value="">Select a category</option>
+                        <option value="fullTime">Full Time</option>
+                        <option value="partTime">Part Time</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hiringManager">Hiring Manager</label>
+                    <select id="hiringManager" name="hiringManager" required>
+                        <option value="">Select a manager</option>
+                        <option value="manager1">John Doe</option>
+                        <option value="manager2">Jane Smith</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="targetDate">Target Requisition Close Date</label>
+                    <input type="date" id="targetDate" name="targetDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="positions">Number of Positions</label>
+                    <input type="number" id="positions" name="positions" min="1" value="1" required>
+                </div>
+                
+                <div class="info-box">
+                    <h3>ADP Salary Benchmark</h3>
+                    <p>Compensation Engine by ADP DataCloud</p>
+                    <div style="background-color: #f0f0f0; height: 20px; width: 100%; margin-top: 10px;">
+                        <div style="background-color: #003087; height: 100%; width: 60%;"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payType">Pay Type</label>
+                    <select id="payType" name="payType" required>
+                        <option value="salary">Salary</option>
+                        <option value="hourly">Hourly</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payRate">Pay Rate</label>
+                    <input type="number" id="payRate" name="payRate" min="0" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recruiterName">Recruiter Name</label>
+                    <input type="text" id="recruiterName" name="recruiterName">
+                </div>
+                
+                <div class="form-group">
+                    <label for="recruiterEmail">Recruiter Email</label>
+                    <input type="email" id="recruiterEmail" name="recruiterEmail">
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="displayLocation" name="displayLocation" required>
+                    <label for="displayLocation">Display location</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="showSalary" name="showSalary" required>
+                    <label for="showSalary">Show salary information to job seekers</label>
+                </div>
+            </div>
+            
+            <div id="posting-details" class="page">
+                <h3>Posting Settings</h3>
+                <div class="form-group">
+                    <label>Where The Posting Is</label>
+                    <div>
+                        <input type="radio" id="internal" name="postingType" value="internal">
+                        <label for="internal">Internal applicants only</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="external" name="postingType" value="external">
+                        <label for="external">External applicants only</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="both" name="postingType" value="both" checked>
+                        <label for="both">Internal and external applicants</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postingName">Posting Name and Job Description</label>
+                    <textarea id="postingName" name="postingName" rows="4"></textarea>
+                </div>
+                
+                <h3>Application Settings</h3>
+                <div class="form-group">
+                    <label>Internal Applicants</label>
+                    <div>
+                        <input type="checkbox" id="internalResume" name="internalResume" checked>
+                        <label for="internalResume">Require a resume</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="internalScreening" name="internalScreening" checked>
+                        <label for="internalScreening">Require pre-screening questionnaire</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>External Applicants</label>
+                    <div>
+                        <input type="checkbox" id="externalResume" name="externalResume" checked>
+                        <label for="externalResume">Require a resume</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="externalScreening" name="externalScreening" checked>
+                        <label for="externalScreening">Require pre-screening questionnaire</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="userEmail">Your Email</label>
+                    <input type="email" id="userEmail" name="userEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmEmail">Confirm Your Email</label>
+                    <input type="email" id="confirmEmail" name="confirmEmail" required>
+                </div>
+            </div>
+            
+            <div id="posting-questions" class="page">
+                <div class="info-box">
+                    <p>You can add more education, experience, skills, licenses & certifications, and memberships to be part of the application process under Setup > HR & Talent > Recruitment > Required Fields. If you do not have access to this setting, please contact your HR Administrator.</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Posting Questions</label>
+                    <div>
+                        <input type="checkbox" id="question1" name="question1" checked>
+                        <label for="question1">Effective January 1, 2022, it is illegal in Oregon to ask an applicant or employee to provide a driver's license for a job that is not related to driving.</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="question2" name="question2" checked>
+                        <label for="question2">Gathering a candidate's Personal Identifiable Information (such as Social Security number, driver's license number, or bank account information) during the application process is not recommended.</label>
+                    </div>
+                </div>
+                
+                <h3>Default Questions</h3>
+                <div class="form-group">
+                    <label for="desiredSalary">What is your desired salary?</label>
+                    <input type="text" id="desiredSalary" name="desiredSalary">
+                </div>
+                <div class="form-group">
+                    <label for="aboutYourself">Do you want to tell us anything else about yourself?</label>
+                    <textarea id="aboutYourself" name="aboutYourself" rows="4"></textarea>
+                </div>
+            </div>
+            
+            <div id="confirm-selections" class="page">
+                <h3>Confirm Selections</h3>
+                <div id="confirmationSummary">
+                    <!-- This will be populated dynamically -->
+                </div>
+            </div>
+            
+            <div class="nav-buttons">
+                <button type="button" id="prevBtn" class="button" style="display:none;">Back</button>
+                <button type="button" id="nextBtn" class="button">Next</button>
+                <button type="submit" id="submitBtn" class="button" style="display:none;">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let currentTab = 0;
+        const tabs = ['position-info', 'posting-details', 'posting-questions', 'confirm-selections'];
+        
+        function showTab(n) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabs[n]).classList.add('active');
+            document.querySelector(`.tab[data-tab="${tabs[n]}"]`).classList.add('active');
+            
+            if (n === 0) {
+                document.getElementById('prevBtn').style.display = 'none';
+            } else {
+                document.getElementById('prevBtn').style.display = 'inline';
+            }
+            
+            if (n === tabs.length - 1) {
+                document.getElementById('nextBtn').style.display = 'none';
+                document.getElementById('submitBtn').style.display = 'inline';
+                populateConfirmation();
+            } else {
+                document.getElementById('nextBtn').style.display = 'inline';
+                document.getElementById('submitBtn').style.display = 'none';
+            }
+        }
+        
+        function nextPrev(n) {
+            if (n > 0 && !validateForm()) return false;
+            currentTab += n;
+            if (currentTab >= tabs.length) {
+                document.getElementById('requisitionForm').submit();
+                return false;
+            }
+            showTab(currentTab);
+        }
+        
+        function validateForm() {
+            let valid = true;
+            const activeTab = document.querySelector('.page.active');
+            const inputs = activeTab.querySelectorAll('input[required], select[required], textarea[required]');
+            inputs.forEach(input => {
+                if (!input.value) {
+                    input.style.borderColor = 'red';
+                    valid = false;
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+
+            if (currentTab === 0) {
+                const displayLocation = document.getElementById('displayLocation');
+                const showSalary = document.getElementById('showSalary');
+                if (!displayLocation.checked || !showSalary.checked) {
+                    alert('Please check both "Display location" and "Show salary information to job seekers" to continue.');
+                    valid = false;
+                }
+            }
+
+            return valid;
+        }
+        
+        function populateConfirmation() {
+            const summary = document.getElementById('confirmationSummary');
+            summary.innerHTML = ''; // Clear previous content
+            
+            const fields = ['jobTitle', 'workerCategory', 'hiringManager', 'targetDate', 'positions', 'payType', 'payRate', 'recruiterName', 'recruiterEmail', 'userEmail'];
+            
+            fields.forEach(field => {
+                const value = document.getElementById(field).value;
+                if (value) {
+                    const p = document.createElement('p');
+                    p.textContent = `${field}: ${value}`;
+                    summary.appendChild(p);
+                }
+            });
+        }
+        
+        document.getElementById('prevBtn').addEventListener('click', () => nextPrev(-1));
+        document.getElementById('nextBtn').addEventListener('click', () => nextPrev(1));
+        
+        document.getElementById('requisitionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Requisition submitted successfully!');
+        });
+        
+        showTab(currentTab);
+    </script>
+</body>
+</html>
